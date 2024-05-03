@@ -1,14 +1,11 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
+import backgroundImage from '../../assets/loginForm/Círcular.svg';
 
 export const LayoutContainer = styled.div`
-  /* max-width: 74rem;
-  height: calc(100vh - 10rem);
-  margin: 5rem auto; */
-
-  /* background: url('../../assets/loginForm/Círcular.svg'); */
-  border-radius: 8px;
-  background-color:black;
-
-  display: flex;
-  flex-direction: column;
-`
+  background-image: url(${backgroundImage});
+  background-size: 140%;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  width: 100vw;
+`;

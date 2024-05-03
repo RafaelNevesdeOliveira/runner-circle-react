@@ -1,4 +1,3 @@
-import React from "react";
 import {
   TextField,
   Typography,
@@ -11,11 +10,11 @@ import {
   LoginCard,
   LoginContainer,
   LoginContainerImage,
-} from "../../styles1/login/LoginFormStyles";
+} from "./styles";
 import Logo from "../../assets/loginForm/Logo.svg";
 import Runnner from "../../assets/loginForm/RunnerCircle.svg";
 
-const LoginForm: React.FC = () => {
+export function Cadastro() {
   return (
     <LoginCard>
       <LoginContainer>
@@ -24,12 +23,21 @@ const LoginForm: React.FC = () => {
           style={{ fontWeight: "bold", fontSize: "2rem" }}
           gutterBottom
         >
-          Login
+          Cadastro
         </Typography>
-        <FormLabel>E-mail</FormLabel>
+        <FormLabel>Nome</FormLabel>
         <TextField
           color="secondary"
-          label="Email"
+          label="Seu nome"
+          variant="outlined"
+          margin="normal"
+          fullWidth
+        />
+        <FormLabel>Email ou usuário</FormLabel>
+        <TextField
+          label="usuario123@hotmail.com"
+          color="secondary"
+          type="password"
           variant="outlined"
           margin="normal"
           fullWidth
@@ -47,10 +55,9 @@ const LoginForm: React.FC = () => {
           control={<Checkbox defaultChecked />}
           label="Lembrar-me"
         />
-        <ButtonLogin variant="contained">Login</ButtonLogin>
-        <Typography variant="body2" style={{ marginTop: 20 }}>
-          Ainda não tem conta? <a href="#register">Crie seu cadastro!</a>
-        </Typography>
+        <ButtonLogin >
+          Cadastrar
+        </ButtonLogin>
       </LoginContainer>
       <LoginContainerImage>
         <img
@@ -78,6 +85,4 @@ const LoginForm: React.FC = () => {
       </LoginContainerImage>
     </LoginCard>
   );
-};
-
-export default LoginForm;
+}

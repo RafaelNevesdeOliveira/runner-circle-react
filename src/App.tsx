@@ -4,18 +4,6 @@ import { GlobalStyle } from "./styles/global";
 import { Router } from './Router';
 import { defaultTheme } from './styles/themes/default'
 
-// const App: React.FC = () => {
-//   return (
-//     <>
-//       <CssBaseline />
-//       <div className={styles.mainCard}>
-//         <LoginForm />
-//       </div>
-//     </>
-//   );
-// };
-
-
 function App() {
   return (
     <ThemeProvider theme={defaultTheme}>

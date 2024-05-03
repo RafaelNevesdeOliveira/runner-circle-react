@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Box, Button } from '@mui/material';
-import '../../global.css'
+import { Box } from '@mui/material';
+import '../../styles/global'
 
 export const LoginCard = styled(Box)`
   display: flex;
@@ -28,17 +28,22 @@ export const LoginContainerImage = styled(Box)`
   width: 31.25rem;
   height: 600px;
   padding: 40px;
-  background-color: var(--gray-700);
+  background-color: black;
   position: relative;
   border-radius:0 20px 20px 0;
 `;
 
-export const ButtonLogin = styled(Button)`
-  background-color: var(--green) !important;
-  color: black !important;
-  font-weight: bold !important;
+export const ButtonLogin = styled.button`
+  background-color: ${(props) => props.theme['verde-medio']};
+  color: ${(props) => props.theme['gray-100']};
+  font-weight: bold;
+  padding: 0.75em 1.5em;
+  border: none;
+  border-radius: 0.375em;
+  cursor: pointer;
+  transition: background-color 0.3s;
 
   &:hover {
-    background-color: var(--strong-green) !important;
+    background-color: ${(props) => props.theme['verde-limao']};
   }
 `;
