@@ -1,72 +1,86 @@
+import { Box, Typography, CssBaseline, Grid } from "@mui/material";
 import {
-  Box,
-  Typography,
-  IconButton,
-  Card,
-  CardContent,
-  CardActions,
-  CssBaseline
-} from '@mui/material';
-// import FavoriteIcon from '@mui/icons-material/Favorite';
-// import CommentIcon from '@mui/icons-material/Comment';
-import { styled } from '@mui/material/styles';
-import { Layout, SearchField, Sidebar } from './styles';
+  Layout,
+  SearchField,
+  Sidebar,
+  FeedContainer,
+  CriarRegistro,
+  StyledNavLink,
+  SideNavLinksPublicar,
+  SideNavLinksLogout,
+} from "./styles";
+import { ActivityCard, Activity } from "../../components/ActivityCard";
+import Logo from "../../assets/loginForm/Logo.svg";
+import { SignOut } from "phosphor-react";
 
-const FeedContainer = styled(Box)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  gap: 10px;
-`;
-
-const ActivityCard = styled(Card)`
-  width: 100%;
-  max-width: 500px;
-`;
+const mockActivities: Activity[] = [
+  {
+    id: 1,
+    time: "8:00 AM",
+    type: "Run",
+    distance: "5km",
+    calories: "300",
+    bpm: "120",
+    user: "User1",
+    userImage:
+      "https://images.unsplash.com/photo-1483721310020-03333e577078?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVvcGxlJTIwc3BvcnR8ZW58MHx8MHx8fDA%3D",
+    likes: 10,
+    comments: 5,
+    imageUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh-BL5mfltDoNZvUCaK7EGrl7q9WoFy1rCjKupUZ23OQ&s",
+  },
+  {
+    id: 2,
+    time: "9:00 AM",
+    type: "Walk",
+    distance: "3km",
+    calories: "150",
+    bpm: "100",
+    user: "User2",
+    userImage:
+      "https://images.unsplash.com/photo-1500468756762-a401b6f17b46?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHBlb3BsZSUyMHNwb3J0fGVufDB8fDB8fHww",
+    likes: 5,
+    comments: 2,
+    imageUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh-BL5mfltDoNZvUCaK7EGrl7q9WoFy1rCjKupUZ23OQ&s",
+  },
+];
 
 export function FeedGeral() {
-  const activities = [
-    { id: 1, time: '00:30', type: 'Caminhada intensa', distance: '2 Km', calories: '300 kcal', bpm: '120 BPM', user: 'Laura Mota Linhares', likes: 5, comments: 2 },
-    { id: 2, time: '00:30', type: 'Caminhada intensa', distance: '2 Km', calories: '300 kcal', bpm: '120 BPM', user: 'Laura Mota Linhares', likes: 5, comments: 2 },
-    { id: 2, time: '00:30', type: 'Caminhada intensa', distance: '2 Km', calories: '300 kcal', bpm: '120 BPM', user: 'Laura Mota Linhares', likes: 5, comments: 2 },
-    { id: 2, time: '00:30', type: 'Caminhada intensa', distance: '2 Km', calories: '300 kcal', bpm: '120 BPM', user: 'Laura Mota Linhares', likes: 5, comments: 2 },
-    { id: 2, time: '00:30', type: 'Caminhada intensa', distance: '2 Km', calories: '300 kcal', bpm: '120 BPM', user: 'Laura Mota Linhares', likes: 5, comments: 2 },
-    { id: 2, time: '00:30', type: 'Caminhada intensa', distance: '2 Km', calories: '300 kcal', bpm: '120 BPM', user: 'Laura Mota Linhares', likes: 5, comments: 2 },
-  ];
   return (
     <Layout>
       <CssBaseline />
       <Sidebar>
-        <Typography variant="h6">Runner Circle</Typography>
-        <IconButton color="inherit">Publicar</IconButton>
-        <IconButton color="inherit">Feed</IconButton>
-        <IconButton color="inherit">Perfil</IconButton>
-        <IconButton color="inherit">Logout</IconButton>
+        <Typography variant="h6">
+          {" "}
+          <img src={Logo} alt="Logo" />
+        </Typography>
+        <StyledNavLink to="/login">
+          <CriarRegistro>
+            <SideNavLinksPublicar>Publicar</SideNavLinksPublicar>
+          </CriarRegistro>
+        </StyledNavLink>
+        <StyledNavLink to="/login">
+          <SideNavLinksLogout>Logout</SideNavLinksLogout>
+          <SignOut size={24} weight="bold" />
+        </StyledNavLink>
       </Sidebar>
-        <SearchField fullWidth placeholder="O que você procura?" variant="outlined" />
-      <FeedContainer maxWidth="sm">
-        {activities.map((activity) => (
-          <ActivityCard key={activity.id}>
-            <CardContent>
-              <Typography variant="subtitle1" gutterBottom>{activity.time} - {activity.type}</Typography>
-              <Typography variant="body2">Distância: {activity.distance}</Typography>
-              <Typography variant="body2">Calorias: {activity.calories}</Typography>
-              <Typography variant="body2">Batimentos: {activity.bpm}</Typography>
-              <Typography variant="body2">{activity.user}</Typography>
-            </CardContent>
-            <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-              <IconButton aria-label="add to favorites">
-                {/* <FavoriteIcon /> {activity.likes} */}
-              </IconButton>
-              <IconButton aria-label="comment">
-                {/* <CommentIcon /> {activity.comments} */}
-              </IconButton>
-            </Box>
-          </ActivityCard>
-        ))}
-      </FeedContainer>
+      <Box flex="1">
+        <SearchField
+          fullWidth
+          placeholder="O que você procura?"
+          variant="outlined"
+        />
+        <FeedContainer maxWidth="lg">
+          <Grid container spacing={3}>
+            {mockActivities.map((activity) => (
+              <Grid item xs={12} sm={6} md={4} key={activity.id}>
+                <ActivityCard activity={activity} />
+              </Grid>
+            ))}
+          </Grid>
+        </FeedContainer>
+      </Box>
     </Layout>
   );
 }
-

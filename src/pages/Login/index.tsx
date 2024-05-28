@@ -48,16 +48,9 @@ export function Login() {
           label="Lembrar-me"
         />
 
-        <NavLink to="/feed-geral">
+        <NavLink to="/feed">
           <ButtonLogin>Login</ButtonLogin>
         </NavLink>
-
-        <Typography variant="body2" style={{ marginTop: 20 }}>
-          Ainda não tem conta?{" "}
-          <NavLink to="/cadastro">
-            <a href="#register">Crie seu cadastro!</a>{" "}
-          </NavLink>
-        </Typography>
       </LoginContainer>
       <LoginContainerImage>
         <img

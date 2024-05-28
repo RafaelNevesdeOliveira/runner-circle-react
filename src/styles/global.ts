@@ -7,12 +7,6 @@ export const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
 }
 
-body {
-  /* background-image: url('../assets/loginForm/Círcular.svg');
-  background-size:cover; */
-
-}
-
 body,
 input,
 textarea,
