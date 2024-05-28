@@ -1,3 +1,4 @@
+// src/styles/styles.ts
 import { Box, Container, TextField, Card } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
